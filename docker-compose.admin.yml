@@ -1,0 +1,11 @@
+services:
+  ms-vetcare-kafka-admin:
+    image: ms-vetcare-kafka-admin:kafka-ev3
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: "kafka-1:9092,kafka-2:9092,kafka-3:9092"
+      SERVER_ADDRESS: "0.0.0.0"
+    ports:
+      - "127.0.0.1:8086:8086"
